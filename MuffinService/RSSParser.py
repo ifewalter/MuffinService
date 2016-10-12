@@ -1,5 +1,6 @@
 from _ast import Raise
 import logging
+from BeautifulSoup import BeautifulSoup
 import requests.exceptions
 from MuffinService import config
 
@@ -11,9 +12,6 @@ class RSSParser():
     page_content = None
 
     page_url_exception = "Invalid page URL"
-
-    def __init__(self, _page_url):
-        self.page_url = _page_url
 
 
     def get_url_content(self):
@@ -29,5 +27,15 @@ class RSSParser():
 
         return content
 
-    def extract_rss_from_html(self, html_content):
-        pass
+    def extract_rss_link_from_html(self, html_content):
+        rss_link = None
+
+        try:
+            soup = BeautifulSoup(html_content)
+            link = soup.find('link', type='application/rss+xml')
+            if not link:
+                logging.warning("URL has no RSS")
+            rss_link = link.get('href')
+        except Exception as ex:
+            logging.warning(ex)
+        return rss_link
