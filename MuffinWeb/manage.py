@@ -1,6 +1,8 @@
 #! /usr/bin/env python
 
 import os
+from flask.ext.compress import Compress
+from flask.ext.cors import CORS
 
 from flask.ext.script import Manager
 
@@ -8,6 +10,8 @@ from muffin import create_app, db
 
 
 app = create_app(os.getenv('MUFFIN_CONFIG', 'default'))
+CORS(app)
+Compress(app)
 manager = Manager(app)
 
 
