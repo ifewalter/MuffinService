@@ -1,8 +1,7 @@
+from flask_security.core import RoleMixin
 
 from MuffinWeb.muffin import db
-
-from flask_security.core import RoleMixin
-from MuffinWeb.muffin.schemas.BaseModel import BaseModel
+from MuffinWeb.muffin.models import BaseModel
 
 __author__ = 'ife'
 

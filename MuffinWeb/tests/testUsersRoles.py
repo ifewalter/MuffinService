@@ -1,9 +1,8 @@
-from flask import Flask
 from flask_testing import TestCase
-from MuffinWeb import config
+
 from MuffinWeb.manage import user_datastore
 from MuffinWeb.muffin import db, create_app
-from MuffinWeb.muffin.schemas.UsersModel import UsersModel
+from MuffinWeb.muffin.models import UsersModel
 
 __author__ = 'ife'
 
