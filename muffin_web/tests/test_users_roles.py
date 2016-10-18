@@ -1,8 +1,8 @@
 from flask_testing import TestCase
 
-from MuffinWeb.manage import user_datastore
-from MuffinWeb.muffin import db, create_app
-from MuffinWeb.muffin.models import UsersModel
+from muffin_web.manage import user_datastore
+from muffin_web.muffin import db, create_app
+from muffin_web.muffin.models import users_model
 
 __author__ = 'ife'
 
@@ -22,8 +22,8 @@ class testUserRoles(TestCase):
 
     def testCreateUser(self):
         db.create_all()
-        if not UsersModel.query.first():
+        if not users_model.query.first():
             user_datastore.create_user(email='test@example.com', password='test123')
             db.session.commit()
-        result = UsersModel.query.first()
+        result = users_model.query.first()
         self.assertEqual(result.email, 'test@example.com')

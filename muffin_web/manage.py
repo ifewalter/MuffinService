@@ -7,8 +7,8 @@ from flask_cors import CORS
 from flask_script import Manager
 from flask_security import SQLAlchemyUserDatastore, Security
 
-from MuffinWeb.muffin.schemas.RolesModel import RolesModel
-from MuffinWeb.muffin.models import UsersModel
+from muffin_web.muffin.models.roles_model import RolesModel
+from muffin_web.muffin.models import users_model
 from muffin import create_app, db
 
 app = create_app(os.getenv('MUFFIN_CONFIG', 'default'))
@@ -17,7 +17,7 @@ Compress(app)
 manager = Manager(app)
 
 
-user_datastore = SQLAlchemyUserDatastore(db, UsersModel, RolesModel)
+user_datastore = SQLAlchemyUserDatastore(db, users_model, RolesModel)
 security = Security(app, user_datastore)
 
 @manager.shell

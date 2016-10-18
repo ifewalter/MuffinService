@@ -1,4 +1,4 @@
-from MuffinWeb.muffin import db
+from muffin_web.muffin import db
 
 __author__ = 'ife'
 

@@ -1,5 +1,5 @@
 __author__ = 'ife'
-from MuffinService.RSSParser import RSSParser
+from muffin_service.RSS_parser import RSSParser
 import unittest
 
 

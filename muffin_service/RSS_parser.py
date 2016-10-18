@@ -2,7 +2,7 @@ from _ast import Raise
 import logging
 from BeautifulSoup import BeautifulSoup
 import requests.exceptions
-from MuffinService import config
+from muffin_service import config
 
 __author__ = 'ife'
 

@@ -1,12 +1,12 @@
 from flask_security.core import RoleMixin
 
-from MuffinWeb.muffin import db
-from MuffinWeb.muffin.models import BaseModel
+from muffin_web.muffin import db
+from muffin_web.muffin.models import base_model
 
 __author__ = 'ife'
 
 
-class RolesModel(BaseModel, RoleMixin):
+class RolesModel(base_model, RoleMixin):
     __tablename__ = 'auth_role'
     name = db.Column(db.String(80), nullable=False, unique=True)
     description = db.Column(db.String(255))
