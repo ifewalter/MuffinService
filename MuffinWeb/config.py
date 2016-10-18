@@ -8,7 +8,7 @@ class Config(object):
     DEBUG = False
     TESTING = False
     DEVELOPMENT_DB = 'mysql://root:ifewalter@localhost/muffin'
-    TESTING_DB = 'mysql://root:ifewalter@jarvis/muffin_test'
+    TESTING_DB = 'mysql://root:ifewalter@localhost/muffin_test'
 
 
 class ProductionConfig(Config):

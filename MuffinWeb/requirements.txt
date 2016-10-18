@@ -185,3 +185,5 @@ xattr==0.6.4
 xmltodict==0.10.1
 yattag==1.5.2
 zope.interface==4.1.1
+Flask-Security==1.7.5
+

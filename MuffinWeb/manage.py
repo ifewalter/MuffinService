@@ -1,10 +1,13 @@
 #! /usr/bin/env python
 
 import os
-from flask.ext.compress import Compress
-from flask.ext.cors import CORS
+from flask_compress import Compress
+from flask_cors import CORS
 
-from flask.ext.script import Manager
+from flask_script import Manager
+from flask_security import SQLAlchemyUserDatastore, Security
+from MuffinWeb.muffin.schemas.RolesModel import RolesModel
+from MuffinWeb.muffin.schemas.UsersModel import UsersModel
 
 from muffin import create_app, db
 
@@ -14,6 +17,9 @@ CORS(app)
 Compress(app)
 manager = Manager(app)
 
+
+user_datastore = SQLAlchemyUserDatastore(db, UsersModel, RolesModel)
+security = Security(app, user_datastore)
 
 @manager.shell
 def make_shell_context():
