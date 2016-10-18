@@ -12,10 +12,12 @@ class Config(object):
 
 
 class ProductionConfig(Config):
+    SECURITY_PASSWORD_HASH = 'pbkdf2_sha512'
+    SECURITY_TRACKABLE = True
+    SECURITY_PASSWORD_SALT = 'something_super_secret_change_in_production'
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         'MUFFIN_PRODUCTION_DATABASE_URI'
     )
-
 
 class DevelopmentConfig(Config):
     DEBUG = True
