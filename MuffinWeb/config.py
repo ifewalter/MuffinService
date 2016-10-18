@@ -7,6 +7,8 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config(object):
     DEBUG = False
     TESTING = False
+    DEVELOPMENT_DB = 'mysql://root:ifewalter@localhost/muffin'
+    TESTING_DB = 'mysql://root:ifewalter@jarvis/muffin_test'
 
 
 class ProductionConfig(Config):
@@ -17,16 +19,12 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
-        'MUFFIN_DEVELOPMENT_DATABASE_URI'
-    )
+    SQLALCHEMY_DATABASE_URI = Config.DEVELOPMENT_DB
 
 
 class TestingConfig(Config):
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
-        'MUFFIN_TESTING_DATABASE_URI'
-    )
+    SQLALCHEMY_DATABASE_URI = Config.TESTING_DB
 
 
 config = {
