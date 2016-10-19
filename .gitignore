@@ -7,10 +7,8 @@
 
 .idea/modules.xml
 
-.idea/muffin.iml
-
 .idea/vcs.xml
 
-.idea/workspace.xml
+.idea/muffin.iml
 
-.idea/workspace.xml
+*.pyc
