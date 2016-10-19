@@ -1,7 +1,8 @@
+
+
 __author__ = 'ife'
 from muffin_service.RSS_parser import RSSParser
 import unittest
-
 
 class testRSSParser(unittest.TestCase):
 
@@ -23,13 +24,11 @@ class testRSSParser(unittest.TestCase):
 
     def test_valid_extract_rss_link_from_html(self):
         rss = RSSParser()
-        content ='<html><head><link rel="alternate" type="application/rss+xml" title="Punch Newspapers &raquo; Feed" href="http://punchng.com/feed/"/>' \
-                   '<link rel="alternate" type="application/rss+xml" title="Punch Newspapers &raquo; Comments Feed" href="http://punchng.com/comments/feed/"/>' \
-                   '<link rel="alternate" type="application/rss+xml" title="Punch Newspapers &raquo; Punch Newspapers &#8211; Nigeria news, news in Africa, politics,' \
-                   ' Entertainment, Sports Comments Feed" href="http://punchng.com/punch-newspapers-read-newspaper-nigeria/feed/"/></head><body></body></html>'
+        content ='<html><head><link rel="alternate" type="application/rss+xml" title="" href="http://example.com/feed/"/>' \
+                   '</head><body></body></html>'
 
         link = rss.extract_rss_link_from_html(html_content=content)
-        self.assertEqual(link, 'http://punchng.com/feed/')
+        self.assertEqual(link, 'http://example.com/feed/')
 
 
     def test_no_rss_link_from_null_html(self):
