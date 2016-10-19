@@ -5,20 +5,15 @@ import os
 from flask_compress import Compress
 from flask_cors import CORS
 from flask_script import Manager
-from flask_security import SQLAlchemyUserDatastore, Security
 
-from muffin_web.muffin.models.roles_model import RolesModel
-from muffin_web.muffin.models import users_model
 from muffin import create_app, db
 
-app = create_app(os.getenv('MUFFIN_CONFIG', 'default'))
+
+app = create_app(os.getenv('MUFFIN_CONFIG', 'testing'))
 CORS(app)
 Compress(app)
 manager = Manager(app)
 
-
-user_datastore = SQLAlchemyUserDatastore(db, users_model, RolesModel)
-security = Security(app, user_datastore)
 
 @manager.shell
 def make_shell_context():

@@ -1,7 +1,8 @@
 from flask import Flask
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
-from muffin_web.config import config
+
+from config import config
 
 db = SQLAlchemy()
 ma = Marshmallow()
