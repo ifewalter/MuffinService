@@ -8,6 +8,9 @@ __author__ = 'ife'
 
 
 class RSSParser():
+    def __init__(self):
+        pass
+
     page_url = None
     page_content = None
 

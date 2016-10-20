@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Sangalo</title>
+
+    <meta name="viewport" content="width=device-width">
+
+<meta name="google-play-app" content="app-id=com.sangalo.android">
+<link rel="stylesheet" href="/jquery.smartbanner.css" type="text/css" media="screen">
+
+    <meta name="SKYPE_TOOLBAR" CONTENT="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+
+    <link href='http://fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" /><link rel="stylesheet" type="text/css" href="/css/uniform_base.css" />
+            <link rel="apple-touch-icon" href="/images/iphone.png" />
+    <link rel="apple-touch-startup-image" href="/images/iphone.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+</head>
+<body>
+<div class="start android-phone-start"  style="background:url(/images/header-bg.jpg) no-repeat center top;background-size:100% auto;">
+
+    <div class="landing-container">
+        <div class="landing-header">
+            <h1><a href="#">Sangalo</a></h1>
+            <div class="landing-links">
+                <a href='https://play.google.com/store/apps/details?id=com.sangalo.android&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-ap-PartBadge-Mar2515-1'><img style="width: 150px;" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/apps/en-play-badge-border.png'/></a>
+            </div>
+            <!--<div class="landing-links">
+                <a href="#" class="apple"><img src="/images/landing/notavailable_apple.png" /></a><a href="#" class="android"><img src="/images/landing/notavaiable_ggl.png" /></a><span class="big">Available soon on</span>
+                <span class="sml">In the meantime visit <a href="https://www.sangalo.com/login">www.sangalo.com</a> on your phone</span>
+            </div>-->
+        </div><!-- landing-header -->
+        <div class="landing-slider slideshow vertical cycle-slideshow"
+             data-cycle-fx="scrollVert"
+             data-cycle-timeout=0
+             data-cycle-next="#next3"
+             data-cycle-prev="#prev3"
+             data-cycle-pager="#pager3"
+             data-cycle-slides="> div.slide"
+             data-cycle-carousel-visible=1
+             data-cycle-carousel-vertical=true
+            >
+            <div class="slide slide1">
+                <div class="liketable">
+                    <div class="likecell">
+                        <h2>Connecting soccer fans everywhere</h2>
+                        <p>Connect and share football moments with your friends and other fans around the world.</p>
+                        <img src="/images/landing/page1.png" class="main"/>
+                    </div>
+                </div>
+            </div><!-- slide -->
+            <div class="slide slide2">
+                <div class="liketable">
+                    <div class="likecell">
+                        <table>
+                            <tr>
+                                <td class="table-content">
+                                    <h2>Team Dashboard</h2>
+                                    <p>Choose your favourite teams and
+                                        follow matches unfold in real time, from every angle.</p>
+                                </td>
+                                <td>
+
+                                    <img src="/images/landing/page2.png"  class="main"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div><!-- slide -->
+            <div class="slide slide3">
+                <div class="liketable">
+                    <div class="likecell">
+                        <table>
+                            <tr>
+
+                                <td>
+
+                                    <img src="/images/landing/page3.png"  class="main"/>
+                                </td>
+                                <td class="table-content">
+                                    <h2>Engage with fellow supporters</h2>
+                                    <p>Post your own comments and pictures, like other fans posts and make new friends along the way.</p>
+                                    <img src="/images/landing/page3_2.png" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div><!-- slide -->
+            <div class="slide slide4">
+                <div class="liketable">
+                    <div class="likecell">
+                        <table>
+                            <tr>
+                                <td class="table-content">
+                                    <h2>Live Match Dashboard</h2>
+                                    <p>View live match action such as live scores, goal scorers and red cards.</p>
+                                </td>
+                                <td>
+
+                                    <img src="/images/landing/page4.png"  class="main"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div><!-- slide -->
+            <!-- <div class="slide slide3">
+                <div class="liketable">
+                    <div class="likecell">
+                        <table>
+                            <tr>
+
+                <td>
+
+                <img src="/images/landing/page5.png"  class="main"/>
+                </td>
+                <td class="table-content">
+                <h2>Predict & Win</h2>
+                <p>Predict the scoreline and earn points on the Sangalo leaderboard.</p>
+                <img src="/images/landing/page5_2.png" />
+                </td>
+                </tr>
+                </table>
+                </div>
+                </div>
+            </div> --><!-- slide -->
+            <div class="slide slide6">
+                <div class="liketable">
+                    <div class="likecell">
+
+                        <h2>Get your game on!</h2>
+                        <p>Download the app now</p>
+                        <div class="the-links clearfix">
+                            <a href='https://play.google.com/store/apps/details?id=com.sangalo.android&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-ap-PartBadge-Mar2515-1'><img style="width: 150px;" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/apps/en-play-badge-border.png'/></a>
+                        </div>
+                        <span>OR visit <a href="http://www.sangalo.com">www.sangalo.com</a> on your phone</span>
+
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="landing-slider-nav">
+            <a href=# id="prev3"><< Prev </a>
+            <a href=# id="next3"> Next >> </a>
+        </div>
+    </div><!-- landing-container -->
+
+    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script><script type="text/javascript" src="/js/jquery.cycle2.js"></script><script type="text/javascript" src="/js/jquery.cycle2.scrollVert.min.js"></script>
+
+</div><!-- start -->
+<div class="start-footer">
+    Copyright © 2015 Sangalo. All rights reserved.
+    <a href="/content_pages/view/terms-and-conditions">Terms of Use</a>.
+    <a href="/content_pages/view/privacy-policy">Privacy Policy</a>.
+</div>
+<style>
+.start-footer{
+    padding: 5px;
+display: block;
+text-align: center;
+font-size: 11px;
+    line-height: 14px;
+    clear: both;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: black;
+}
+</style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/jquery.smartbanner.js"></script>
+    <script type="text/javascript">
+      $().smartbanner();
+    </script>
+
+</body>
+</html>
