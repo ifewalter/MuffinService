@@ -9,6 +9,7 @@ class DomainsModel(BaseModel):
     url = db.Column(db.String(255))
     has_rss = db.Column(db.Boolean, default=False)
     favicon = db.Column(db.String(255), nullable=True)
+    feed_url = db.Column(db.String(255), nullable=True)
     feeds = db.relationship('FeedsModel', backref=db.backref('domains',lazy='joined'), lazy='dynamic')
 
     def __repr__(self):
