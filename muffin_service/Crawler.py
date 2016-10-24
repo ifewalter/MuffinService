@@ -3,22 +3,20 @@ from __future__ import division, print_function, unicode_literals
 
 import time
 from .Classifier import Classifier
-from DBThings import DBThings
+from .db_things import DBThings
 
 from . import articleDateExtractor
 
 
 __author__ = 'ife'
 
-from newspaper import Article
-from .Parser import Parser
+from .newspaper import Article
+from .parser import Parser
 
 
 
 from sumy.parsers.html import HtmlParser
-from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
-# from sumy.summarizers.lsa import LsaSummarizer as Summarizer
 from sumy.summarizers.lex_rank import LexRankSummarizer as Summarizer
 from sumy.nlp.stemmers import Stemmer
 from sumy.utils import get_stop_words

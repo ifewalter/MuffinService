@@ -34,6 +34,7 @@ class Parser:
             return True
         return False
 
+    # Remove unwanted tags
     def sanitize(self, data):
         soup = BeautifulSoup(data)
         for element in soup.findAll(['script', 'style']):
@@ -41,11 +42,3 @@ class Parser:
         for comments in soup.findAll(text=lambda text: isinstance(text, Comment)):
             comments.extract()
         return html2text.html2text(soup.getText())
-
-
-
-# parser = Parser()
-# data = parser.get_data("http://lindaikejisblog.com/")
-# # print data
-# print parser.extract_links(data=data, domain="http://lindaikejisblog.com/")
-# print parser.sanitize(data=data)

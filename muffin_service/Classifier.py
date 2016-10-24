@@ -3,7 +3,6 @@ import requests
 
 __author__ = 'ife'
 
-
 class Classifier:
 
     def __init__(self):

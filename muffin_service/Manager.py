@@ -1,8 +1,8 @@
 from threading import Thread
 import threading
 import logging
-from Builder import Builder
-from DBThings import DBThings
+from builder import Builder
+from db_things import DBThings
 from Queue import Queue
 
 __author__ = 'ife'

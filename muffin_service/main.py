@@ -1,7 +1,7 @@
 __author__ = 'iFewalter'
 
-from Manager import Manager
-from Manager import start_work
+from manager import Manager
+from manager import start_work
 
 start_work()
 

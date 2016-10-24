@@ -5,9 +5,11 @@ from flask_security.core import UserMixin
 # from muffin_web.manage import app
 
 from muffin_web.muffin import db
+from muffin_web.muffin.common.helpers import generate_token
 from muffin_web.muffin.models.base_model import BaseModel
 from muffin_web.muffin.models.roles_model import RolesModel
 from muffin_web.muffin.models.roles_users_model import roles_users
+from muffin_web.muffin.common import helpers
 
 __author__ = 'ife'
 
@@ -27,9 +29,9 @@ class UsersModel(BaseModel, UserMixin):
     last_login_ip = db.Column(db.String(45))
     current_login_ip = db.Column(db.String(45))
     login_count = db.Column(db.Integer)
+    token = db.Column(db.String(30))
     roles = db.relationship('RolesModel', secondary=roles_users,
                             backref=db.backref('users', lazy='dynamic'))
-
 
     def create_user(self):
 
@@ -38,12 +40,17 @@ class UsersModel(BaseModel, UserMixin):
             return None
         try:
             SQLAlchemyUserDatastore(db, UsersModel, RolesModel).create_user(email=self.email, password=self.password,
-                                       first_name=self.first_name, last_name=self.last_name,
+                                       first_name=self.first_name, last_name=self.last_name, token=generate_token(),
                                        active=self.active)
             db.session.commit()
             return self
         except Exception as ex:
             logging.warning(ex)
+
+    def get_id_by_token(self, token):
+        result = self.query.filter(db.text("token= '"+token+"'")).first()
+        if result:
+            return result.id
 
     def __repr__(self):
         return '<User %r>' % self.email
