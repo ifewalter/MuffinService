@@ -1,10 +1,18 @@
 import time
+from manager import outqueue
 
 __author__ = 'ife'
 
 import newspaper
 from crawler import Crawler
 from db_things import DBThings
+
+
+def crawl_url(url):
+    crawler = Crawler()
+    crawler.prosess_content(url)
+    return
+
 
 class Builder:
     def __init__(self):
@@ -20,11 +28,8 @@ class Builder:
             if article_count < 50:
                 if url_processed is False:
                     # Avoid overloading client server
+                    time.sleep(2)
                     print "crawling"
-                    self.crawl_url(article.url)
+                    outqueue.put(article.url)
                     article_count += 1
-        return
-    def crawl_url(self,url):
-        crawler = Crawler()
-        crawler.prosess_content(url)
         return

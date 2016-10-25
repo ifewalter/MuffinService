@@ -5,7 +5,7 @@ import itertools
 
 class DBThings():
 
-    db = MySQLdb.connect("localhost","root",">Predict?","summer")
+    db = MySQLdb.connect("localhost","root","ifewalter","summer")
     def __init__(self):
         # self.lock = threading.Lock()
         pass
@@ -31,7 +31,8 @@ class DBThings():
         try:
             self.db.open()
             cursor = self.db.cursor()
-            cursor.execute("insert into articles (author, publish_date, content, top_image, keywords,url, title, category)values ('"+MySQLdb.escape_string(author)+"','"+publish_date+"','"+MySQLdb.escape_string(text.decode('utf-8','ignore'))+"','"+top_image+"','"+keywords+"','"+url+"','"+MySQLdb.escape_string(title)+"','"+category+"')")
+            cursor.execute("insert into feeds (author, publish_date, content, top_image, keywords,url, title, category_id, domain_id)"
+                           "values ('"+MySQLdb.escape_string(author)+"','"+publish_date+"','"+MySQLdb.escape_string(text.decode('utf-8','ignore'))+"','"+top_image+"','"+keywords+"','"+url+"','"+MySQLdb.escape_string(title)+"','"+str(1)+"','"+str(1)+"')")
             self.db.commit()
             self.db.close()
         except Exception as e:
@@ -40,13 +41,14 @@ class DBThings():
         # self.lock.release()
         return
 
-    def get_top_domains(self):
+    def get_domains_without_rss(self):
         # self.lock.acquire()
-        db = MySQLdb.connect("localhost","root",">Predict?","summer")
+        db = MySQLdb.connect("localhost","root","ifewalter","muffin")
         cursor = db.cursor()
-        cursor.execute("select url from domains")
+        cursor.execute("select url from domains where has_rss = false")
         url_list = list(itertools.chain.from_iterable(cursor))
         db.close()
         # self.lock.release()
         return url_list
+
 

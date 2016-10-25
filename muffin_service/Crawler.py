@@ -1,17 +1,12 @@
-from __future__ import absolute_import
-from __future__ import division, print_function, unicode_literals
-
-import time
-from .Classifier import Classifier
-from .db_things import DBThings
-
-from . import articleDateExtractor
-
+# from __future__ import absolute_import
+# from __future__ import division, print_function, unicode_literals
+import db_things
+import articleDateExtractor
 
 __author__ = 'ife'
 
-from .newspaper import Article
-from .parser import Parser
+from newspaper import Article
+from parser import Parser
 
 
 
@@ -36,7 +31,7 @@ class Crawler:
         # article.html
         article.parse()
 
-        dbthings = DBThings()
+        dbthings = db_things.DBThings()
         parser = Parser()
 
         if article.authors:
@@ -59,7 +54,7 @@ class Crawler:
         all_sentences = ''
 
         for sentence in summarizer(parser.document, 10):
-            all_sentences += sentence._text # print(sentence)#all_sentence = all_sentence + sentence
+            all_sentences += (sentence._text+'\n')
 
         # TODO: Pay for better license to speed up this process
         # time.sleep(80)

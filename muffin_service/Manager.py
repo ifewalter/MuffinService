@@ -1,41 +1,63 @@
-from threading import Thread
-import threading
-import logging
-from builder import Builder
+
+import multiprocessing
+import time
 from db_things import DBThings
-from Queue import Queue
+import builder
 
-__author__ = 'ife'
+outqueue = None
 
 
-class Manager(Thread):
-    def __init__(self, queue):
-        Thread.__init__(self)
-        self.queue = queue
-        # super(Manager, self).__init__()
+class WorkerProcess(multiprocessing.Process):
+    def __init__(self):
+        multiprocessing.Process.__init__(self)
+        self.exit = multiprocessing.Event()
+
+    def doWork(self):
+        global outqueue
+        ob = outqueue.get()
+
+        builder.crawl_url(ob)
 
     def run(self):
-        logging.debug("doing main work")
-        url = self.queue.get()
-        builder = Builder()
-        builder.build_urls(url)
+        while not self.exit.is_set():
+            self.doWork()
 
-def start_work():
-    dbthings = DBThings()
+    def shutdown(self):
+        self.exit.set()
 
-    result = dbthings.get_top_domains()
-    queue = Queue()
-
-    for url_item in result:
-        worker = Manager(queue)
-        worker.daemon=True
-        worker.start()
-        queue.put((url_item))
-    queue.join()
-
-    start_work()
+if __name__ == '__main__':
+    global outqueue
+    outqueue = multiprocessing.Queue()
 
 
+    # creating the processes
+    procs = []
+    for x in range(50):
+        procs.append(WorkerProcess())
+        procs[x].start()
+
+    #pass parameter to queue
+    dbThings = DBThings()
+
+    result = dbThings.get_domains_without_rss()
+    if result:
+        for url in result:
+            outqueue.put(url)
+
+    # outqueue.put(str(1))
 
 
+    # # shutdown after 10 secs
+    # time.sleep(10)
+    # for p in procs:
+    #     p.shutdown()
 
+    # for p in procs:
+    #     p.join()
+
+    # try:
+    #     while True:
+    #         x = outqueue.get(False)
+    #         print x
+    # except:
+    #     print "done"
