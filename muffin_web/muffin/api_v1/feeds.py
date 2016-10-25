@@ -9,7 +9,7 @@ from ..schemas.feeds import FeedsSchema
 
 feeds_schema = FeedsSchema(strict=True)
 
-@api.route('/feeds', methods=['GET'])
+@api.route('/feeds/', methods=['GET'])
 def get_feeds():
     feeds_model = FeedsModel()
     user_id = helpers.get_user_id_from_header_token()
@@ -20,6 +20,6 @@ def get_feeds():
 
     return jsonify(feeds_schema.dump(top_feeds, many=True).data), status.HTTP_200_OK
 
-@api.route('/feed/<int:id>', methods=['GET'])
+@api.route('/feed/<int:id>/', methods=['GET'])
 def get_feed(id):
     pass

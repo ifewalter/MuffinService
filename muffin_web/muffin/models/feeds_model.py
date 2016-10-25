@@ -1,6 +1,6 @@
 from .. import db
 from .base_model import BaseModel
-from muffin_web.muffin.models.user_categories_model import UserCategoriesModel
+from ..models.user_categories_model import UserCategoriesModel
 
 
 class FeedsModel(BaseModel):

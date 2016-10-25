@@ -7,7 +7,7 @@ from ..schemas.categories import CategoriesSchema
 
 categories_schema = CategoriesSchema()
 
-@api.route('/categories', methods=['GET'])
+@api.route('/categories/', methods=['GET'])
 def get_categories():
     categories_model = CategoriesModel()
     result = categories_model.get_all()

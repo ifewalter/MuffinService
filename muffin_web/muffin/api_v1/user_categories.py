@@ -9,7 +9,8 @@ __author__ = 'ife'
 
 schema = UserCategoriesSchema(strict=True)
 
-@api.route('/user/categories', methods=['GET'])
+@api.route('/user/categories/', methods=['GET'])
+@token_required
 def get_user_categories():
     user_categories_model = UserCategoriesModel()
     result = user_categories_model.get_all()
@@ -21,7 +22,7 @@ receives PUT request with data format
     categories:[1,2,3,4,5...]
 
 """
-@api.route('/user/categories', methods=['PUT'])
+@api.route('/user/categories/', methods=['PUT'])
 @token_required
 def update_user_categories():
     input_dict = request.get_json(force=True)

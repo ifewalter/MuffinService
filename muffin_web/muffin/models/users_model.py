@@ -4,12 +4,11 @@ from flask.ext.security import SQLAlchemyUserDatastore, Security
 from flask_security.core import UserMixin
 # from muffin_web.manage import app
 
-from muffin_web.muffin import db
-from muffin_web.muffin.common.helpers import generate_token
-from muffin_web.muffin.models.base_model import BaseModel
-from muffin_web.muffin.models.roles_model import RolesModel
-from muffin_web.muffin.models.roles_users_model import roles_users
-from muffin_web.muffin.common import helpers
+from .. import db
+from oauthlib.common import generate_token
+from ..models.base_model import BaseModel
+from ..models.roles_model import RolesModel
+from ..models.roles_users_model import roles_users
 
 __author__ = 'ife'
 
@@ -32,6 +31,10 @@ class UsersModel(BaseModel, UserMixin):
     token = db.Column(db.String(30))
     roles = db.relationship('RolesModel', secondary=roles_users,
                             backref=db.backref('users', lazy='dynamic'))
+    oauth_provider = db.Column(db.String(150))
+    oauth_user_id = db.Column(db.String(255))
+    oauth_token = db.Column(db.String(255))
+
 
     def create_user(self):
 

@@ -2,7 +2,7 @@ from functools import wraps
 import random
 import string
 from flask import request, make_response
-from muffin_web.muffin.models.users_model import UsersModel
+from ..models.users_model import UsersModel
 
 __author__ = 'ife'
 
